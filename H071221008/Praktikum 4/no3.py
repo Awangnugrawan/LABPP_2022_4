@@ -1,4 +1,4 @@
-h = int(input(""))
+h = int(input())
 
 def myDay(h):
     tahun = h//365
