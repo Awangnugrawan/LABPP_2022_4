@@ -1,0 +1,26 @@
+namafile = input() + ".txt"
+jumlahasisten = int(input())
+hasil = open(namafile, "w+")
+
+try:
+    hasil.write("+" + "-" * 22 + "+" + "-" * 12 + "+" + "-" * 10 + "+\n")
+    hasil.write("|" + " Nama" + " " * 17 + "|" + " Nim" + " " * 8 + "|" + " Angkatan" + " " + "|" + "\n")
+    hasil.write("+" + "-" * 22 + "+" + "-" * 12 + "+" + "-" * 10 + "+\n")
+
+    for i in range(jumlahasisten):
+        nama = input().replace(" ", "_")
+        if len(nama) > 20:
+            print("inputan nama tidak boleh lebih dari 20")
+            raise TypeError()
+
+        nim = input()
+        angkatan = input()
+
+        hasil.write("|" + " " + nama + " " * (22-(len(nama)+1)) + "| " + nim + " " * (12-(len(nim)+1)) + "| " + angkatan + " " * (10-(len(angkatan)+1)) + "|" + "\n")
+    hasil.write("+" + "-" * 22 + "+" + "-" * 12 + "-" + "-" * 10 + "+\n")
+    print("berhasil")
+
+except:
+    print("gagal")
+
+hasil.close()
