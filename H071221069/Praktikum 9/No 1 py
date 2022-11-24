@@ -1,0 +1,97 @@
+class Human:
+    def __init__(self, nama, posisi):
+        self.nama = nama
+        self.__pos_x = posisi
+        self._speed = 1
+
+    def movement(self, arah):
+        if arah == 'L' :
+            self.__pos_x -= self._speed
+        elif arah == 'R':
+            self.__pos_x += self._speed
+
+    def getposisi(self):
+        return self.__pos_x
+
+    def getspeed(self):
+        return self._speed
+
+    def setspeed(self, newspeed):
+        self._speed = newspeed
+
+class Hero(Human):
+    def __init__(self, name, pos_x):
+        super().__init__(name, pos_x)
+        self._power = 15
+        self._health = 400
+        self._armor = 15
+        self._speed = 3
+
+    def attack(self, target):
+        # target._health -= self._power
+        newhealth = target.gethealth() - self._power
+        target.sethealth(newhealth)
+    
+    def getpower(self):
+        return self,_power
+
+    def setpower(self, newpower):
+        self._power = newpower
+
+    def gethealth(self):
+        return self._health
+    
+    def sethealth(self,newhealth):
+
+    def getspeed(self):
+        return self._speed
+
+    def setspeed(self, newspeed):
+        self.speed = newspeed
+
+
+class Warrior(Hero):
+    def __init__(self, nama, pos_x):
+        super().__init__(nama, pos_x )
+        self._power = 26
+        self._armor = 30
+
+    def special(self, target):
+        self._armor = 45
+        self._power = 32
+        self.attack(target)
+
+class Assassin(Hero):
+    def __init__(self,nama, pos_x):
+        super().__init__(nama, pos_x)
+        self._power = 35
+        self._speed = 4
+
+    def special(self, target):
+        self._speed = 7
+        self._power = 42
+        self.attack(target)
+
+
+class Support(Hero):
+    def __init__(self, nama, pos_x):
+        super().__init__(nama, pos_x)
+        self._health = 500
+        self._armor = 8
+        self._speed = 4
+
+    def special(self, target):
+        self._ = 6
+        # target._health = target._health + 150
+        newhealth = target.gethealth() + 150
+        target.sethealth(newhealth)
+
+erul = Warrior("erul", 5)
+rahim = Support("rahim", 10)
+iyar = Assassin("iyar", 15)
+
+
+nyawa = erul.gethealth()
+print("sebelum", nyawa)
+nyawa = erul.gethealth()
+print("sesudah", nyawa)
