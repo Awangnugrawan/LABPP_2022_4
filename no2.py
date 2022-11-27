@@ -1,17 +1,29 @@
+from Zoo import Kucing, Anjing
+kucing = Kucing("oren")
+anjing = Anjing("coklat")
 
-a = input()
-b = input()
-try:
-    with open(f"{a}.txt","r") as zoom:
-        files = zoom.readlines()
-        n = []
-        files[-1] += "/n"
-        for x in files :
-            n.append(len(x))
-            with open(f"{b}.txt","w") as copy:
-                for i in files:
-                    copy.write(i.rjust(max(n)))
-        print(len(x))
-    print("berhasil")
-except:
-    print("tidak berhasil")
+print("-"*30)
+print("--- Cara kucing bergerak ---")
+kucing.bergerak()
+print("-"*30)
+print("--- Cara anjing bergerak ---")
+print("-"*30)
+anjing.bergerak()
+
+print("-"*30)
+print("--- Cara kucing bertarung ---")
+kucing.bertarung()
+print("-"*30)
+
+print("--- Cara anjing bertarung ---")
+anjing.bertarung()
+print("-"*30)
+
+print("Kucing serang anjing")
+print("--- Darah anjing sebelum diserang ---")
+anjing.cekDarah()
+kucing.serang(anjing)
+print("--- Darah anjing setelah diserang ---")
+anjing.cekDarah()
+
+
